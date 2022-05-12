@@ -11,9 +11,9 @@ internal class LapReportTest : DescribeSpec({
                 val winner = CarName("우승자")
                 val lapReport = LapReport(
                     listOf(
-                        CarNameWithLocation(winner to Location(5)),
-                        CarNameWithLocation(CarName("비우승자") to Location(4)),
-                        CarNameWithLocation(CarName("비우승자") to Location(3)),
+                        CarNameWithLocation(winner, Location(5)),
+                        CarNameWithLocation(CarName("비우승자"), Location(4)),
+                        CarNameWithLocation(CarName("비우승자"), Location(3)),
                     )
                 )
 
@@ -25,9 +25,9 @@ internal class LapReportTest : DescribeSpec({
                 val winner2 = CarName("우승자2")
                 val lapReport = LapReport(
                     listOf(
-                        CarNameWithLocation(winner1 to Location(5)),
-                        CarNameWithLocation(winner2 to Location(5)),
-                        CarNameWithLocation(CarName("비우승자") to Location(3)),
+                        CarNameWithLocation(winner1, Location(5)),
+                        CarNameWithLocation(winner2, Location(5)),
+                        CarNameWithLocation(CarName("비우승자"), Location(3)),
                     )
                 )
 
@@ -40,9 +40,9 @@ internal class LapReportTest : DescribeSpec({
         it("상태를 List<Pare>로 반환할 수 있다") {
             val lapReport = LapReport(
                 listOf(
-                    CarNameWithLocation(CarName("참가자1") to Location(5)),
-                    CarNameWithLocation(CarName("참가자2") to Location(5)),
-                    CarNameWithLocation(CarName("참가자3") to Location(3)),
+                    CarNameWithLocation(CarName("참가자1"), Location(5)),
+                    CarNameWithLocation(CarName("참가자2"), Location(5)),
+                    CarNameWithLocation(CarName("참가자3"), Location(3)),
                 )
             )
 
