@@ -1,5 +1,6 @@
 package racingcar.view
 
+import racingcar.dto.LapResponse
 import racingcar.dto.RacingGameResponse
 
 object ResultView {
@@ -14,16 +15,16 @@ object ResultView {
 
     fun print(response: RacingGameResponse) {
         println(RESULT)
-        printLapReports(response.lapReports)
+        printLapResponses(response.lapResponses)
         printWinners(response.winners)
     }
 
-    private fun printLapReports(lapReports: List<List<Pair<String, Int>>>) {
-        println(lapReports.joinToString(LAP_DELIMITER) { lap(it) })
+    private fun printLapResponses(lapResponses: List<LapResponse>) {
+        println(lapResponses.joinToString(LAP_DELIMITER) { lapResponse(it) })
     }
 
-    private fun lap(lapReports: List<Pair<String, Int>>): String {
-        return lapReports.joinToString(CAR_DELIMITER) { "${carName(it.first)}${carLocation(it.second)}" }
+    private fun lapResponse(lapReports: LapResponse): String {
+        return lapReports.lapReport.joinToString(CAR_DELIMITER) { "${carName(it.first)}${carLocation(it.second)}" }
     }
 
     private fun carName(name: String): String {
