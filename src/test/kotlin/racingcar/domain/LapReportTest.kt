@@ -35,4 +35,23 @@ internal class LapReportTest : DescribeSpec({
             }
         }
     }
+
+    describe("toPairs") {
+        it("상태를 List<Pare>로 반환할 수 있다") {
+            val lapReport = LapReport(
+                listOf(
+                    CarNameWithLocation(CarName("참가자1") to Location(5)),
+                    CarNameWithLocation(CarName("참가자2") to Location(5)),
+                    CarNameWithLocation(CarName("참가자3") to Location(3)),
+                )
+            )
+
+            val pairs = lapReport.toPairs()
+            pairs shouldBe listOf(
+                "참가자1" to 5,
+                "참가자2" to 5,
+                "참가자3" to 3,
+            )
+        }
+    }
 })
